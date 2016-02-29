@@ -46,11 +46,15 @@ class SamlListener extends AbstractAuthenticationListener
         if ($this->oneLoginAuth->getErrors()) {
             throw new \Exception($this->oneLoginAuth->getLastErrorReason());
         }
-
         $attributes = $this->oneLoginAuth->getAttributes();
         $token = new SamlToken();
+        if ($this->options['username_attribute'] == 'uid') {
+            $userName = $this->oneLoginAuth->getNameID();
+        } else {
+            $userName = $attributes[$this->options['username_attribute']][0];
+        }
         $token->setAttributes($attributes);
-        $token->setUser($attributes[$this->options['username_attribute']][0]);
+        $token->setUser($userName);
 
         return $this->authenticationManager->authenticate($token);
     }
