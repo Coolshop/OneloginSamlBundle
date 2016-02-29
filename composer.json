@@ -1,13 +1,13 @@
 {
-    "name": "hslavich/oneloginsaml-bundle",
+    "name": "coolshop/oneloginsaml-bundle",
     "type": "symfony-bundle",
     "description": "OneLogin SAML Bundle for Symfony2",
     "keywords": ["onelogin", "saml", "sso"],
     "license": "MIT",
     "authors": [
         {
-            "name": "hslavich",
-            "email": "hernan.slavich@gmail.com"
+            "name": "Alberto Brino",
+            "email": "alberto@coolshop.it"
         }
     ],
     "require": {
